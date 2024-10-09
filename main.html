@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons and Search Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+
+        .search-container input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." id="searchInput">
+        <input type="submit" value="Search" id="searchButton">
+    </div>
+
+    <div class="button-container">
+        <button id="button1">Button 1</button>
+        <button id="button2">Button 2</button>
+        <button id="button3">Button 3</button>
+        <button id="button4">Button 4</button>
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            let query = document.getElementById('searchInput').value;
+            alert('You searched for: ' + query);
+        });
+
+        document.getElementById('button1').addEventListener('click', function() {
+            alert('Button 1 clicked');
+        });
+
+        document.getElementById('button2').addEventListener('click', function() {
+            alert('Button 2 clicked');
+        });
+
+        document.getElementById('button3').addEventListener('click', function() {
+            alert('Button 3 clicked');
+        });
+
+        document.getElementById('button4').addEventListener('click', function() {
+            alert('Button 4 clicked');
+        });
+    </script>
+</body>
+</html>
 
