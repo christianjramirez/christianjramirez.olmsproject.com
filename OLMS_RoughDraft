@@ -1,0 +1,92 @@
+//pseudo code for the project
+//*=subject to change
+
+Different status:
+	Available
+	Rented- rented will have a tracker of how many users are waitlisted in front of user.
+	OVERDUE
+
+
+
+
+USERS:
+	Can: 
+		createAccount()
+			-Users must create an account to rent books.
+			*Anyone is allowed to search a book's status but will not be able to: rent or check waitlist.
+	
+		upgradeAccount()
+			-Memberships(bear with me this whole thing is just up to my interpretiation, feel free to include or discuss any necessary changes)
+			*P2p vs freemium users will be denoted by a status symbol(IMO a star or something).
+			*Users must be a member to waitlist library books.
+			*Freemium will not be able to waitlist books but can still see the waitlist.
+			*Premium members will pay $3.99 a month.
+				Members will be reminded (1 week, 1 day) before a charge is made.
+					Members are given a grace period of 3 days before unpaid membership is cancelled.
+					Any books waitlisted are automatically released if membership is cancelled.
+				
+			Members can prioritize different waitlisted books.
+				Automatically notified when books are returned that are on their waitlist.
+					*Freemium will not be notified.
+	
+		searchBook()
+			-Books will be categorized as : Bookname, Author, ISBN, Status.
+				Must have the ability to search with ISBN vs alphabetical order with book name and author.
+				*Search must be leniant, maybe 60% of words use can match the database.
+		
+		checkReservations() 
+			-Allows user to check waitlist.
+		
+		checkHistory()
+			-ALL Users will have unique rented book history
+				also be told when is due date
+			*be reminded when due date is close(3 days, 1 day, day off, OVERDUE!)
+			Books are classified as OVERDUE if the user has not returned the book after 11:59pm on the day it is due.
+			Users will not be allowed to rent books if they have a book overdue.
+			*users with outstanding overdue dates will incur a $1 free everyday until book is returned.
+				*P2p users will be charged automatically, Freemium users will have to input their card details to pay the fee on first time offense.
+					(I want any free user to never feel that they need to use their card to use the website.)
+			*Should any user have an overdue book for 1 week, acc is suspended and must email an admin to release suspension. 
+
+		
+		
+	
+			
+ADMIN:
+	Can: 
+		addBook()
+			-Allows any admin to add a book into the database.
+			
+		removeBook()
+			-Allows any admin to remove a book from the database.
+			
+		updateBookStatus()
+			-Allows any admin to update the status of a rented book.
+				*Most of the actions on this website are suppose to be automatic,
+				however I believe it must be an admin to clear the status of the book.
+				Once the admin clears the book, then the system can notify P2p members.
+				
+		suspendAcc()
+			-Allows any admin suspend any account
+				*Aside an automatic suspension for OVERDUE books, I believe an Admin should be allowed to suspend accounts.
+				
+		releaseAcc()
+			-Allows any admin to release any suspended accounts.
+			
+		deleteAcc()
+			-Allows any admin to delete any account.
+				*Every single detail including; search history, rented history, waitlist, card info, etc. will all be scrubbed.
+				*Users that have deleted will need to sign up as a fresh account.
+				
+		createAnoucement()
+			-Allows any admin to create an anouncement that will display at the home page.
+			
+		
+Any Admin action will be recorded on a log to allow other admins to see any activity changes.
+Admins will also function as users.
+
+
+		
+-created 9 Oct 2024
+-last revision: 9 Oct 2024	
+*/
