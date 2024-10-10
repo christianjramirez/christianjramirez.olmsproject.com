@@ -2,4 +2,5 @@
 Online Library Management system
 
 Current Plan:
-![IMG_2988-preview](https://github.com/user-attachments/assets/55c4f397-39d5-43ef-bc98-73334e677165)
+
+![IMG_2988](https://github.com/user-attachments/assets/3f4a3fd1-9159-4a1b-9af7-b710007c4d1a)
