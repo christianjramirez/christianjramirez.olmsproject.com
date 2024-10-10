@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .header{
+            font-size: 36px;
+            text-align: center;
+            margin: 20px
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: grid;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 100%
+            
+            
+        }
+
+        .button-container button {
+            background-color: rgb(49, 112, 60);
+            /*background-image: linear-gradient(rgb(49, 112, 60),rgb(239, 213, 45));*/
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+
+        .search-container input[type="submit"] {
+            background-color: rgb(49, 112, 60);
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class = "header" > Online Library Management System</div>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." id="searchInput">
+        <input type="submit" value="Search" id="searchButton">
+    </div>
+
+    <div class="button-container">
+        <button id="button1">Home</button>
+        <button id="button2">About</button>
+        <button id="button3">Credits</button>
+        <button id="button4">Contact Info</button>
+    </div>
+
+    <script async type = "text/javascript" src = script.js>
+    </script>
+</body>
+</html>
 
