@@ -1,5 +1,6 @@
 # OLMS
-Online Library Management system
+Online Library Management system:
+A web-based application for managing library books, user memberships, book loans, etc.
 
 Current Plan:
 
