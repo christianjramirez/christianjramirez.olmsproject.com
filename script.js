@@ -13,7 +13,9 @@ document.getElementById('button2').addEventListener('click', function() {
 
 document.getElementById('button3').addEventListener('click', function() {
   //alert('Should send to credits');
-  header("Location: credits.html");
+  if (!event.target.matches(#button3"))
+    return;
+  fetch("credits.html);
 });
 
 document.getElementById('button4').addEventListener('click', function() {
