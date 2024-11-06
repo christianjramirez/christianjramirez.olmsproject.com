@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLMS</title>
+    <style>
+        body {
+            background: beige; 
+            color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .header {
+            font-size: 36px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: grid;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .button-container button {
+            background-color: rgb(49, 112, 60);
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1em;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 150px;
+            border-radius: 15px;
+            text-align: center;
+            background-color: white; 
+            padding: 10px;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0; 
+        }
+
+        .description {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .bottommargin {
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            bottom: 0;
+            z-index: 999;
+            background-color: rgb(49, 112, 60);
+        }
+        .instaLogo{
+            position: fixed; 
+            bottom: 0; 
+            left: 75%; 
+            margin-bottom: 0;
+            width: 75px;
+            z-index: 1000;
+        }
+        .myspacelogo{
+            position: fixed;
+            bottom: 0;
+            left: 69%;
+            margin-bottom: 0;
+            width: 75px;
+            z-index: 1000;
+
+
+        }
+        .linkedinlogo{
+            position: fixed;
+            bottom: 0;
+            left: 63%;
+            margin-bottom: 0;
+            width: 80px;
+            z-index: 1000;
+
+        }
+        .twitterlogo{
+        position: fixed;
+        bottom: 0;
+        left: 81%;
+        margin-bottom: 0;
+        width: 75px;
+        z-index: 1000;
+        }
+
+        .facebooklogo{
+            position: fixed;
+            bottom: 0;
+            left: 87%;
+            margin-bottom: 0;
+            width: 75px;
+            z-index: 1000;
+            
+        }
+        .liblogo{
+            position: fixed;
+            top: 0;
+            right: 93%;
+            margin-top: 10;
+            width: 90px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="header">Credits</div>
+
+    <div class="button-container">
+        <button id="button1">Home</button>
+        <button id="button2">About</button>
+        <button id="button3">Credits</button>
+        <button id="button4">Contact Info</button>
+    </div>
+
+    <div class="container">
+        <div class="box" id="box1">
+            <img src="images/yutatesting.webp" alt="Image 1">
+            <div class="description">adrian lol</div>
+        </div>
+        <div class="box" id="box2">
+            <img src="images/image2.png" alt="Image 2">
+            <div class="description">info</div>
+        </div>
+        <div class="box" id="box3">
+            <img src="images/image3.png" alt="Image 3">
+            <div class="description">info</div>
+        </div>
+        <div class="box" id="box4">
+            <img src="images/image4.png" alt="Image 4">
+            <div class="description">info</div>
+        </div>
+        <div class="box" id="box5">
+            <img src="images/image5.png" alt="Image 5">
+            <div class="description">info</div>
+        </div>
+        <div class="box" id="box6">
+            <img src="images/image6.png" alt="Image 6">
+            <div class="description">info</div>
+        </div>
+    </div>
+
+    <div class="bottommargin"></div>
+
+    <a href="https://www.instagram.com">
+        <img class="instaLogo" src="images/instagram.png" alt="Instagram" title="Instagram">
+    </a>
+    <a href="https://myspace.com/discover/featured">
+        <img class="myspacelogo" src="images/myspace.png" alt="MySpace" title="MySpace">
+    </a>
+    <a href="https://www.linkedin.com">
+        <img class="linkedinlogo" src="images/linkedin.png" alt="LinkedIn" title="LinkedIn">
+    </a>
+    <a href="https://twitter.com">
+        <img class="twitterlogo" src="images/twitter.png" alt="Twitter" title="Twitter">
+    </a>
+    <a href="https://www.facebook.com">
+        <img class="facebooklogo" src="images/facebook.png" alt="Facebook" title="Facebook">
+    </a>
+    <a>
+        <img class="liblogo" src="images/books.png" alt="Books" title="Books">
+    </a>
+</body>
+</html>
