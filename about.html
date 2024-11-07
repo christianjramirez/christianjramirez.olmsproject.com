@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body {
-        background: white; 
+ <style>
+    body {
+        background: beige; 
         color: black;
+    
     }
-</style>
-
+ </style>   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLMS</title>
     <style>
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            font-size: 8em;
+            text-align: center;
+            border-radius: 15px;
+        }
+        #box1{
+            background-color: red;
+            
+        }
+        #box2{
+            background-color: yellow;
+            
+        }
+        #box3{
+            background-color: green;
+            
+        }
+        #box4{
+            background-color: blue;
+           
+        }
+        #box5{
+            background-color: orange;
+           
+        }
+        #box6{
+            background-color: pink;
+           
+        }
+     
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -23,18 +62,16 @@
             font-size: 36px;
             text-align: center;
             margin: 20px
+           
         }
-
         .button-container {
             margin-top: 20px;
             display: grid;
             justify-content: flex-start;
             flex-direction: column;
-            width: 100%
-
-
+            width: 100%;
+            
         }
-
         .button-container button {
             background-color: rgb(49, 112, 60);
             /*background-image: linear-gradient(rgb(49, 112, 60),rgb(239, 213, 45));*/
@@ -43,24 +80,22 @@
             font-size: 16px;
             cursor: pointer;
         }
-
+       
         .search-container {
             margin-bottom: 20px;
         }
-
         .search-container input[type="text"] {
             padding: 10px;
             font-size: 16px;
             width: 300px;
         }
-
         .search-container input[type="submit"] {
             background-color: rgb(49, 112, 60);
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
         }
-         .instaLogo{
+        .instaLogo{
             position: fixed; 
             bottom: 0; 
             left: 75%; 
@@ -75,8 +110,6 @@
             margin-bottom: 0;
             width: 75px;
             z-index: 1000;
-
-
         }
         .linkedinlogo{
             position: fixed;
@@ -85,8 +118,6 @@
             margin-bottom: 0;
             width: 80px;
             z-index: 1000;
-
-
         }
         .twitterlogo{
         position: fixed;
@@ -95,17 +126,15 @@
         margin-bottom: 0;
         width: 75px;
         z-index: 1000;
-
-
         }
-         .facebooklogo{
+        .facebooklogo{
             position: fixed;
             bottom: 0;
             left: 87%;
             margin-bottom: 0;
             width: 75px;
             z-index: 1000;
-
+            
         }
         .liblogo{
             position: fixed;
@@ -114,7 +143,7 @@
             margin-top: 10;
             width: 90px;
         }
-
+        
         .bottommargin{
             position: fixed;
             width: 100%;
@@ -123,57 +152,68 @@
             z-index: 999;
             background-color: rgb(49, 112, 60);
         }
+        
     </style>
 </head>
 <body>
-    <div class = "header" > Online Library Management System</div>
-    <div class="search-container">
+    <div class = "header" > About Us</div>
+   <!-- <div class="search-container">
         <input type="text" placeholder="Search..." id="searchInput">
-        <input type="submit" value="Search" id="searchButton">
+     
+       <input type="submit" value="Search" id="searchButton">
+   -->
     </div>
-
     <div class="button-container">
-        <button id="button1" >Home</button>
-        <button id="button2" onclick="window.location.href='about.html'">About</button>
-        <button id="button3" onclick="window.location.href='credits.html'">About>Credits</button>
+        <button id="button1">Home</button>
+        <button id="button2">About</button>
+        <button id="button3">Credits</button>
         <button id="button4">Contact Info</button>
     </div>
-
+   
+    <div class = "container">
+    <div class = "box" id = "box1">1</div>
+    <div class = "box" id = "box2">2</div>
+    <div class = "box" id = "box3">3</div>
+    <div class = "box" id = "box4">4</div>
+    <div class = "box" id = "box5">5</div>
+    <div class = "box" id = "box6">6</div>
+    </div>
     <script async type = "text/javascript" src = script.js>
     </script>
 </body>
-    <div class = "bottommargin" div>
-
-    <body>
+    <div class = "bottommargin" div></div>
+   <!----<div class = "bottommargin" div>
+   
+        <div class = "container">
+        <div class = "box" id = "box1">1</div>>
+        <div class = "box" id = "box2">2</div>>
+        <div class = "box" id = "box3">3</div>>
+        <div class = "box" id = "box4">4</div>>
+        </div>
+    </div>
+-->
+<body>
     <a href = "https://www.instagram.com" >
     <img class = "instaLogo" src = "images/instagram.png"  alt="Instagram" title ="Instagram">
     <a>
-
     <a href = "https://myspace.com/discover/featured">
     <img class = "myspacelogo" src = "images/myspace.png"  alts = "MySpace" title = "MySpace">
     <a>
-
-    <a href = "credits.html">
+    
+    <a href = "https://www.linkedin.com">
     <img class = "linkedinlogo" src = "images/linkedin.png" alt="Linkedin" title = "Linkedin">
     </a>
-
     <a href = "https://twitter.com">
     <img class = "twitterlogo" src = "images/twitter.png" alt = "twitter" title = "Twitter">
     </a>
-
-    <a href="about.html" class="Button">About
-    </a>
-
     <a href = "https://www.facebook.com">
     <img class = "facebooklogo" src = "images/facebook.png" alts = "Facebook" title = "Facebook">
     </a>
-    
-
-        <a>
+    <a>
         <img class = "liblogo" src = "images/books.png" alts = "logo"   title = "books">
     </a>
-
 </body>
+</html>
 </html>
 
 </html>
