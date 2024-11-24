@@ -38,12 +38,14 @@
         }
 
         .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1em;
-            margin-top: 20px;
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+        
+            column-gap: 7em; 
+            row-gap: 15em;
+            margin-top: -100px
+            
+            
         }
 
         .box {
@@ -52,6 +54,11 @@
             text-align: center;
             background-color: white; 
             padding: 10px;
+        }
+
+        #box1{
+            background-color: rgb(255, 0, 149);
+            
         }
 
         .box img {
@@ -133,16 +140,16 @@
     <div class="header">Credits</div>
 
     <div class="button-container">
-        <button id="button1" onlclick = "window.location.href='www.olmsproject.com'">Home</button>
+        <button id="button1" onlclick = "window.location.href='index.html'">Home</button>
         <button id="button2" onclick="window.location.href='about.html'">About</button>
         <button id="button3" onclick="window.location.href='credits.html'">Credits</button>
-        <button id="button4">Contact Info</button>
+        <button id="button4" onclick="window.location.href='contactInfo.html'">Contact Info</button>
     </div>
 
     <div class="container">
         <div class="box" id="box1">
-            <img src="images/yutatesting.webp" alt="Image 1">
-            <div class="description">adrian lol</div>
+            <img src="images/yuta.webp" alt="Image 1">
+            <div class="description">adrian lol I was in charge of the front-end</div>
         </div>
         <div class="box" id="box2">
             <img src="images/image2.png" alt="Image 2">
