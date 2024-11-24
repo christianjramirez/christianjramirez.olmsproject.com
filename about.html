@@ -13,22 +13,24 @@
     <title>OLMS</title>
     <style>
         .container{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1em;
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+        
+            column-gap: 7em; 
+            row-gap: 15em;
+            margin-top: -100px
         }
         .box{
             width: 150px;
-            height: 150px;
-            font-size: 8em;
-            text-align: center;
             border-radius: 15px;
+            text-align: center;
+            background-color: white; 
+            padding: 10px;
         }
+        
         #box1{
-            background-color: red;
-            
+            background-color: rgb(255, 0, 149);
+        
         }
         #box2{
             background-color: yellow;
@@ -47,7 +49,7 @@
            
         }
         #box6{
-            background-color: pink;
+            background-color: rgb(255, 192, 192);
            
         }
      
@@ -157,21 +159,17 @@
 </head>
 <body>
     <div class = "header" > About Us</div>
-   <!-- <div class="search-container">
-        <input type="text" placeholder="Search..." id="searchInput">
-     
-       <input type="submit" value="Search" id="searchButton">
-   -->
+ 
     </div>
     <div class="button-container">
-        <button id="button1" onlclick = "window.location.href="www.olmsproject.com"">Home</button>
+        <button id="button1" onlclick = "window.location.href='index.html'">Home</button>
         <button id="button2" onclick="window.location.href='about.html'">About</button>
         <button id="button3" onclick="window.location.href='credits.html'">Credits</button>
-        <button id="button4">Contact Info</button>
+        <button id="button4" onclick="window.location.href='contactInfo.html'">Contact Info</button>
     </div>
    
     <div class = "container">
-    <div class = "box" id = "box1">1</div>
+    <div class = "box" id = "box1">Adrian box</div>
     <div class = "box" id = "box2">2</div>
     <div class = "box" id = "box3">3</div>
     <div class = "box" id = "box4">4</div>
@@ -182,16 +180,7 @@
     </script>
 </body>
     <div class = "bottommargin" div></div>
-   <!----<div class = "bottommargin" div>
    
-        <div class = "container">
-        <div class = "box" id = "box1">1</div>>
-        <div class = "box" id = "box2">2</div>>
-        <div class = "box" id = "box3">3</div>>
-        <div class = "box" id = "box4">4</div>>
-        </div>
-    </div>
--->
 <body>
     <a href = "https://www.instagram.com" >
     <img class = "instaLogo" src = "images/instagram.png"  alt="Instagram" title ="Instagram">
@@ -217,4 +206,3 @@
 </html>
 
 </html>
-
