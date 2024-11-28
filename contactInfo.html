@@ -12,9 +12,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
+            justify-content: center;
+            /*margin-top: 50px;*/
         }
-        
+        .table{
+            position: absolute;
+            border-collapse: collapse;
+            margin-top: 20px;
+            
+        }
+        .tr{
+            margin: 10px 0px;
+        }
+
         .header {
             font-size: 36px;
             text-align: center;
@@ -23,10 +33,12 @@
 
         .button-container {
             margin-top: 20px;
+            left: 30px;
             display: grid;
             justify-content: flex-start;
             flex-direction: column;
             width: 100%;
+            
         }
 
         .button-container button {
@@ -36,44 +48,34 @@
             font-size: 16px;
             cursor: pointer;
         }
-        
-    
-        
-        .box {
-            width: 300px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1em;
+            margin-top: 20px;
         }
 
+        .box {
+            width: 300px;
+            border-radius: 15px;
+            text-align: center;
+            background-color: white; 
+            padding: 10px;
+        }
         .box h3 {
             font-size: 20px;
             margin-bottom: 15px;
         }
 
-        .input-field {
+        .box img {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            height: auto;
+            border-radius: 10px 10px 0 0; 
         }
 
-        .submit-btn {
-            background-color: rgb(49, 112, 60);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            background-color: rgb(39, 92, 47);
-        }
-        
         .description {
             margin-top: 5px;
             font-size: 14px;
@@ -130,7 +132,7 @@
             margin-bottom: 0;
             width: 75px;
             z-index: 1000;
-            
+
         }
         .liblogo{
             position: fixed;
@@ -140,26 +142,61 @@
             width: 90px;
         }
 
-        
+
     </style>
 </head>
 <body>
-    <div class="header">Contact Info</div>
+    <div class="header">Contacts</div>
 
     <div class="button-container">
-        <button id="button1" onlclick = "window.location.href='index.html'">Home</button>
+        <button id="button1" onlclick = "window.location.href='www.olmsproject.com'">Home</button>
         <button id="button2" onclick="window.location.href='about.html'">About</button>
         <button id="button3" onclick="window.location.href='credits.html'">Credits</button>
-        <button id="button4" onclick="window.location.href='contactInfo.html'">Contact Info</button>
+        <button id="button4">Contact Info</button>
     </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Adrian Amador</td>
+                <td>omgitsqueasy@gmail.com</td>
+                <td>(916) 247-0948</td>
+            </tr>
+            <tr>
+                <td>Christian Ramirez</td>
+                <td>christianjavier1743@gmail.com</td>
+                <td>(530) 777-8344</td>
+            </tr>
+            <tr>
+                <td>Adrian B</td>
+                <td>adriangam00@gmail.com</td>
+                <td>(805) 914-3674</td>
+            </tr>
+            <tr>
+                <td>David Lor</td>
+                <td>Davidlor2015@gmail.com</td>
+                <td>(626) 804-5569</td>
+            </tr>
+            <tr>
+                <td>William Brown</td>
+                <td>william.brown@example.com</td>
+                <td>(567) 890-1234</td>
+            </tr>
+            <tr>
+                <td>PLaceholder</td>
+                <td>placeholder@example.com</td>
+                <td>9999999</td>
+            </tr>
+        </tbody>
+    </table>
 
     <div class="container">
         <div class="box" id="box">
             <h3>Submit a Request</h3>
             <input class="input-field" type="text" placeholder="Enter your request here..." id="requestField">
-            <button class="submit-btn" >Submit</button>
+            <button class="submit-btn" type="submit" >Submit</button>
         </div>
-        
+
     </div>
 
     <div class="bottommargin"></div>
@@ -182,5 +219,31 @@
     <a>
         <img class="liblogo" src="images/books.png" alt="Books" title="Books">
     </a>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+          emailjs.init("yOPv-JmweHpyBxnZF");
+        })();
+
+        document.getElementById("box").addEventListener("submit", function(event){
+            event.preventDefault();
+            const message = document.getElementById("requestField").value;
+
+            const templateParams = {
+                message: message,
+                recipient_email: "olmsproject562@gmail.com" 
+            };
+            emailjs.send("service_u271dwj", "template_dizz4xb", templateParams)
+            .then(function(response) {
+              alert("Email sent successfully!");
+            }, function(error) {
+              alert("Failed to send email. Please try again.");
+              console.error("Error:", error);
+            });
+        };
+        
+        
+    </script>
 </body>
 </html>
