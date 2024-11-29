@@ -193,8 +193,10 @@
     <div class="container">
         <div class="box" id="box">
             <h3>Submit a Request</h3>
+            <form id="form">
             <input class="input-field" type="text" placeholder="Enter your request here..." id="requestField">
-            <button class="submit-btn" type="submit" >Submit</button>
+            <button class="submit-btn" id="btn" type="submit" value = "Submit" >Submit</button>
+            </form>
         </div>
 
     </div>
@@ -220,29 +222,30 @@
         <img class="liblogo" src="images/books.png" alt="Books" title="Books">
     </a>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+      emailjs.init('yOPv-JmweHpyBxnZF')
+    </script>
+
     <script>
-        (function() {
-          emailjs.init("yOPv-JmweHpyBxnZF");
-        })();
+        const message = document.getElementById("requestField").value;
+        const btn = document.getElementById("btn");
+        document.getElementById('form')
+         .addEventListener('submit', function(event) {
+           event.preventDefault();
 
-        document.getElementById("box").addEventListener("submit", function(event){
-            event.preventDefault();
-            const message = document.getElementById("requestField").value;
+           btn.value = 'Sending...';
 
-            const templateParams = {
-                message: message,
-                recipient_email: "olmsproject562@gmail.com" 
-            };
-            emailjs.send("service_u271dwj", "template_dizz4xb", templateParams)
-            .then(function(response) {
-              alert("Email sent successfully!");
-            }, function(error) {
-              alert("Failed to send email. Please try again.");
-              console.error("Error:", error);
-            });
-        };
-        
+           const serviceID = 'service_u271dwj';
+           const templateID = 'template_dizz4xb';
+
+             emailjs.send("service_u271dwj","template_dizz4xb",{
+             message: document.getElementById("requestField").value,
+             });
+            
+        });
         
     </script>
 </body>
