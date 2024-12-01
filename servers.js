@@ -11,13 +11,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json()); // Built-in JSON parser
 app.use(cors()); // Enable CORS
 
-//serve static files (e.g., HTML, CSS, JS)
-app.use(express.static(path.join(__dirname)));
 
 // Import routes
 const bookRoutes = require('./routes/books');
 const userRoutes = require('./routes/users');
 const loanRoutes = require('./routes/loans');
+
+//serve static files (e.g., HTML, CSS, JS)
+app.use(express.static(path.join(__dirname)));
 
 //health check endpoint
 app.get('/', (req, res) => {
