@@ -9,7 +9,7 @@ document.getElementById('signupForm').addEventListener('submit', async (event) =
 
     try {
         // Send a POST request to the server
-        const response = await fetch('http://api.olmsproject.com/api/users/register', {
+        const response = await fetch('/api/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
