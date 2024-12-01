@@ -1,10 +1,16 @@
 async function searchBooks() {
-    const query = document.getElementById('searchInput').value;
+    const query = document.getElementById('searchInput').value.trim();
 
-    if (!query.trim()) {
+    if (!query) {
         alert('Please enter a search query!');
         return;
     }
+
+    // Show a loading indicator
+    const resultsContainer = document.getElementById('resultsContainer') || document.createElement('div');
+    resultsContainer.id = 'resultsContainer';
+    resultsContainer.innerHTML = '<p>Loading...</p>';
+    document.body.appendChild(resultsContainer);
 
     try {
         const response = await fetch(`/api/books/search?query=${encodeURIComponent(query)}`);
@@ -16,32 +22,35 @@ async function searchBooks() {
         displaySearchResults(books);
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred while searching. Please try again.');
+        resultsContainer.innerHTML = '<p>An error occurred while searching. Please try again.</p>';
     }
 }
 
 function displaySearchResults(books) {
     const resultsContainer = document.getElementById('resultsContainer') || document.createElement('div');
     resultsContainer.id = 'resultsContainer';
-    resultsContainer.innerHTML = ''; 
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    // Add a heading for results
+    const heading = document.createElement('h2');
+    heading.textContent = 'Search Results';
+    resultsContainer.appendChild(heading);
 
     if (books.length === 0) {
-        resultsContainer.innerHTML = '<p>No books found.</p>';
+        resultsContainer.innerHTML += '<p>No books found.</p>';
     } else {
+        const list = document.createElement('ul'); // Use semantic HTML
         books.forEach((book) => {
-            const bookItem = document.createElement('div');
-            bookItem.textContent = `${book.title} by ${book.author}`;
-            resultsContainer.appendChild(bookItem);
+            const listItem = document.createElement('li');
+            listItem.textContent = `${book.title} by ${book.author}`;
+            list.appendChild(listItem);
         });
+        resultsContainer.appendChild(list);
     }
 
     document.body.appendChild(resultsContainer);
 }
 
-//document.getElementById('searchButton').addEventListener('click', function() {
- // let query = document.getElementById('searchInput').value;
- // alert('You searched for: ' + query);
-//});
 
 document.getElementById('button1').addEventListener('click', function() {
   alert('Should return to home page');
