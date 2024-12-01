@@ -151,29 +151,23 @@
         <img class="facebooklogo" src="images/facebook.png" alt="Facebook" title="Facebook">
     </a>
     <div class="containerInfo">
-        <div class="box" id="box">
-            <h3>Enter First and Last Name</h3>
-            <input class="input-field" type="text" placeholder="enter first and last name" id="requestField">
-            <h3>Enter Phone Number</h3>
-            <input class="input-field1" type="text" placeholder="create phone number" id="requestField1">
-            <h3>Enter E-mail</h3>
-            <input class="input-field2" type="text" placeholder="enter email.." id="requestField">
-            <h3>Create Password</h3>
-            <input class="input-field3" type="text" placeholder="create password.." id="requestField1">
-        </div>
-    <div class = "signIn">
-        <div class = "sign" id = "sign">
-            
-        Already have an account?
-         <a href="login.html"   target = _self> 
-         Sign in</a></div>
+    <form id="signupForm">
+        <input class="input-field" type="text" name="first_name" placeholder="Enter First Name" required>
+        <input class="input-field" type="text" name="last_name" placeholder="Enter Last Name" required>
+        <input class="input-field" type="email" name="email" placeholder="Enter Email" required>
+        <input class="input-field" type="text" name="phone" placeholder="Enter Phone Number" required>
+        <input class="input-field" type="password" name="password" placeholder="Create Password" required>
+        <button type="submit" class="submit-btn">Create Account</button>
+    </form>
+
+    <div class="signIn">
+        <p>
+            Already have an account? 
+            <a href="login.html" target="_self">Sign in</a>
+        </p>
     </div>
-    <a>
-        <div class="makebutton">
-            <div class="make" id="make">
-                Create 
-            </div>
-        </div>
+</div>
+
     </a>
         <img class="liblogo" src="images/books.png" alt="Logo" title="Books">
     </a>
