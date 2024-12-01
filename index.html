@@ -140,8 +140,10 @@
 <body>
     <div class = "header" > Online Library Management System</div>
     <div class="search-container">
-        <input type="text" placeholder="Search..." id="searchInput">
-        <input type="submit" value="Search" id="searchButton">
+        <form onsubmit="event.preventDefault(); searchBooks();">
+            <input type="text" placeholder="Search..." id="searchInput">
+            <input type="submit" value="Search">
+        </form>
     </div>
 
     <div class="button-container">
