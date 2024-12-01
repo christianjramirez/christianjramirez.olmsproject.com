@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config(); //environment variables
 
 //initialize app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//middleware
+app.use(express.json()); // Built-in JSON parser
+app.use(cors()); // Enable CORS
 
-app.use(express.json()); //built-in JSON parser
-app.use(cors()); //enable CORS
+//serve static files (e.g., HTML, CSS, JS)
+app.use(express.static(path.join(__dirname)));
 
-//import routes
+// Import routes
 const bookRoutes = require('./routes/books');
 const userRoutes = require('./routes/users');
 const loanRoutes = require('./routes/loans');
