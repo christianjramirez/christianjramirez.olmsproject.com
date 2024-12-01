@@ -1,18 +1,23 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const { promisify } = require('util');
 const router = express.Router();
 const db = require('../db');
 
-//function for email validation
+// Promisify database queries
+const query = promisify(db.query).bind(db);
+
+// Function for email validation
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-//register a user
+// Register a user
 router.post('/register', async (req, res) => {
     const { first_name, last_name, email, phone_number, password } = req.body;
 
+    // Input validation
     if (!first_name || !last_name || !email || !phone_number || !password) {
         return res.status(400).json({ message: 'All fields are required' });
     }
@@ -22,33 +27,27 @@ router.post('/register', async (req, res) => {
     }
 
     try {
-        //check for duplicate email
-        const checkEmailQuery = `SELECT * FROM Users WHERE email = ?`;
-        const [existingUser] = await new Promise((resolve, reject) => {
-            db.query(checkEmailQuery, [email], (err, results) => {
-                if (err) return reject(err);
-                resolve(results);
-            });
-        });
-
-        if (existingUser) {
+        // Check for duplicate email
+        const existingUser = await query(`SELECT * FROM Users WHERE email = ?`, [email]);
+        if (existingUser.length > 0) {
             return res.status(409).json({ error: 'Email already exists' }); // Conflict status code
         }
 
-        //hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // Hash password
+        let hashedPassword;
+        try {
+            hashedPassword = await bcrypt.hash(password, 10);
+        } catch (err) {
+            console.error('Error hashing password:', err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
 
-        //insert new user
-        const insertQuery = `
-            INSERT INTO Users (first_name, last_name, email, password, membership_date) 
-            VALUES (?, ?, ?, ?, CURDATE())
-        `;
-        const result = await new Promise((resolve, reject) => {
-            db.query(insertQuery, [first_name, last_name, email, hashedPassword], (err, results) => {
-                if (err) return reject(err);
-                resolve(results);
-            });
-        });
+        // Insert new user
+        const result = await query(
+            `INSERT INTO Users (first_name, last_name, email, phone_number, password, membership_date) 
+            VALUES (?, ?, ?, ?, ?, CURDATE())`,
+            [first_name, last_name, email, phone_number, hashedPassword]
+        );
 
         res.status(201).json({ message: 'User registered successfully', userId: result.insertId });
     } catch (err) {
@@ -57,16 +56,16 @@ router.post('/register', async (req, res) => {
     }
 });
 
-//get all users (exclude password)
-router.get('/', (req, res) => {
-    const query = `SELECT user_id, first_name, last_name, email, membership_date FROM Users`;
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ error: 'Internal server error' });
-        }
+// Get all users (exclude password)
+router.get('/', async (req, res) => {
+    try {
+        const results = await query(`SELECT user_id, first_name, last_name, email, phone_number, membership_date FROM Users`);
         res.json(results);
-    });
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
 
 module.exports = router;
+
