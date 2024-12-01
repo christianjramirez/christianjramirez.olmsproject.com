@@ -11,12 +11,12 @@ function isValidEmail(email) {
 
 //register a user
 router.post('/register', async (req, res) => {
-    const { first_name, last_name, email, password } = req.body;
+    const { first_name, last_name, email, phone_number, password } = req.body;
 
-    // Input validation
-    if (!first_name || !last_name || !email || !password) {
-        return res.status(400).json({ error: 'All fields (first_name, last_name, email, password) are required' });
+    if (!first_name || !last_name || !email || !phone_number || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
     }
+
     if (!isValidEmail(email)) {
         return res.status(400).json({ error: 'Invalid email format' });
     }
