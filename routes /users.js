@@ -10,7 +10,7 @@ function isValidEmail(email) {
 }
 
 //register a user
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     const { first_name, last_name, email, password } = req.body;
 
     // Input validation
