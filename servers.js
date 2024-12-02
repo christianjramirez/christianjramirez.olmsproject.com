@@ -29,8 +29,7 @@ app.use('/api/books', bookRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/loans', loanRoutes);
 
-//serve static files (e.g., HTML, CSS, JS)
-app.use(express.static(path.join(__dirname)));
+
 //error handling
 app.use((err, req, res, next) => {
     console.error(err.stack);
