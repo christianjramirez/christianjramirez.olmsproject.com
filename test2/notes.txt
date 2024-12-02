@@ -1,0 +1,10 @@
+to loan a book create a
+loan2 tuple
+book_has_loan2 tuple
+user_has_loan2 tuple
+
+
+MAYBE:
+create results array outside of while loop and iterate through it in the while loop so that if you
+run a query inside of it the result in the condition doesn't change NOTE: it might not change anyway
+and this might not be problem.

@@ -1,0 +1,127 @@
+CREATE TABLE book2 (
+  ISBN DECIMAL(13,0) NOT NULL,
+  title VARCHAR(75) NULL DEFAULT NULL,
+  author VARCHAR(75) NULL DEFAULT NULL,
+  pictureInfo VARCHAR(200) NULL DEFAULT NULL,
+  PRIMARY KEY (ISBN));
+
+CREATE TABLE loan2 (
+  LID INT NOT NULL AUTO_INCREMENT,
+  isReturned TINYINT NOT NULL DEFAULT '0',
+  returnReminder VARCHAR(1000) NULL DEFAULT NULL,
+  time DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (LID));
+
+//-------------
+book_has_loan2:
+
+CREATE TABLE book_has_loan2 (
+  bookHasLID int(11) NOT NULL,
+  bookHasISBN decimal(13,0) NOT NULL
+);
+
+ALTER TABLE book_has_loan2
+  ADD PRIMARY KEY (bookHasLID, bookHasISBN),
+  ADD KEY bookHasISBN (bookHasISBN);
+
+ALTER TABLE book_has_loan2
+  ADD CONSTRAINT bookHasISBN FOREIGN KEY (bookHasISBN) REFERENCES book2 (ISBN),
+  ADD CONSTRAINT bookHasLID FOREIGN KEY (bookHasLID) REFERENCES loan2 (LID);
+
+ALTER TABLE book_has_loan2 ADD UNIQUE (bookHasISBN);
+//-------------
+
+//-------------
+user2:
+
+CREATE TABLE user2 (
+  UID INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(75) NULL DEFAULT NULL,
+  email VARCHAR(75) NULL DEFAULT NULL,
+  phonenumber DECIMAL(10,0) NULL DEFAULT NULL,
+  isAdmin TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (UID));
+
+ALTER TABLE user2 ADD UNIQUE (name);
+//-------------
+
+//-------------
+user_has_loan2:
+
+CREATE TABLE user_has_loan2 (
+  userHasUID int(11) NOT NULL,
+  userHasLID int(11) NOT NULL
+);
+
+ALTER TABLE user_has_loan2
+  ADD PRIMARY KEY (userHasUID, userHasLID),
+  ADD KEY userHasLID (userHasLID);
+
+ALTER TABLE user_has_loan2
+  ADD CONSTRAINT userHasLID FOREIGN KEY (userHasLID) REFERENCES loan2 (LID),
+  ADD CONSTRAINT userHasUID FOREIGN KEY (userHasUID) REFERENCES user2 (UID);
+
+ALTER TABLE user_has_loan2 ADD UNIQUE (userHasLID);
+//-------------
+
+CREATE TABLE wish_list2 (
+  wishUID INT NOT NULL,
+  wishISBN DECIMAL(13,0) NOT NULL,
+  PRIMARY KEY (wishUID, wishISBN),
+  INDEX wishISBN_idx (wishISBN ASC) VISIBLE,
+  CONSTRAINT wishISBN
+    FOREIGN KEY (wishISBN)
+    REFERENCES book2 (ISBN),
+  CONSTRAINT wishUID
+    FOREIGN KEY (wishUID)
+    REFERENCES user2 (UID));
+
+CREATE TABLE searchresults (
+  ISBN DECIMAL(13,0) NOT NULL,
+  title VARCHAR(75) NULL DEFAULT NULL,
+  author VARCHAR(75) NULL DEFAULT NULL,
+  pictureInfo VARCHAR(200) NULL DEFAULT NULL,
+  PRIMARY KEY (ISBN));
+
+//-------------
+loan_history2:
+
+CREATE TABLE loan_history2 (
+  histLID INT NOT NULL,
+  histTime DATETIME NULL,
+  histUID int(11) NULL,
+  histISBN DECIMAL(13,0) NULL,
+  histTitle VARCHAR(75) NULL,
+  histAuthor VARCHAR(75) NULL,
+  PRIMARY KEY (histLID));
+
+ALTER TABLE loan_history2
+  ADD timeReturned DATETIME NULL DEFAULT CURRENT_TIMESTAMP;
+//-------------
+
+//ADD DATA:
+
+INSERT INTO `book2` (`ISBN`, `title`, `author`, `pictureInfo`) VALUES
+(1234, NULL, NULL, NULL),
+(12345, NULL, NULL, NULL),
+(9780374100148, '2666', 'roberto bolaño', 'images/bookimages/2666.png'),
+(9780241141250, 'austerlitz', 'w g sebald', 'images/bookimages/austerlitz.png'),
+(9780679728757, 'blood meridian', 'cormac mccarthy', 'images/bookimages/blood_meridian.png'),
+(9781584650614, 'erasure', 'percival everett', 'images/bookimages/erasure.png'),
+(9780374153892, 'gilead', 'marilynne robinson', 'images/bookimages/gilead.png'),
+(9780812995343, 'lincoln in the bardo', 'george saunders', 'images/bookimages/lincoln_in_the_bardo.png'),
+(9781609450786, 'my brilliant friend', 'elena ferrante', 'images/bookimages/my_brilliant_friend.png'),
+(9780571224135, 'never let me go', 'kazuo ishiguro', 'images/bookimages/never_let_me_go.png'),
+(9780374228347, 'outline', 'rachel cusk', 'images/bookimages/outline.png'),
+(9781455563937, 'pachinko', 'min jin lee', 'images/bookimages/pachinko.png'),
+(9780385521314, 'say nothing', 'patrick radden keefe', 'images/bookimages/say_nothing.png'),
+(9780679450047, 'the amazing adventures of kavalier & clay', 'michael chabon', 'images/bookimages/the_amazing_adventures_of_kavalier_&_clay.png'),
+(9781594483295, 'the brief wondrous life of oscar wao', 'junot diaz', 'images/bookimages/the_brief_wondrous_life_of_oscar_wao.png'),
+(9780374100124, 'the corrections', 'jonathan franzen', 'images/bookimages/the_corrections.png'),
+(9780060557546, 'the known world', 'edward p jones', 'images/bookimages/the_known_world.png'),
+(9780307265432, 'the road', 'cormac mccarthy', 'images/bookimages/the_road.png'),
+(9780374260507, 'the sellout', 'paul beatty', 'images/bookimages/the_sellout.png'),
+(9780385542364, 'the underground railroad', 'colson whitehead', 'images/bookimages/the_underground_railroad.png'),
+(9780679444329, 'the warmth of other suns', 'isabel wilkerson', 'images/bookimages/the_warmth_of_other_suns.png'),
+(9781400078431, 'the year of magical thinking', 'joan didion', 'images/bookimages/the_year_of_magical_thinking.png'),
+(9780007230204, 'wolf hall', 'hillary mantel', 'images/bookimages/wolf_hall.png');
