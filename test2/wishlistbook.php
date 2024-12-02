@@ -6,7 +6,7 @@ if (isset($_SESSION['userId'])) {
     $dbObject = EnterDatabase();
     $userId = $_SESSION['userId'];
 
-    // Fetch wishlist details for the user
+    
     $sth = $dbObject->prepare('
         SELECT b.title, b.author, b.ISBN 
         FROM wishlist w
