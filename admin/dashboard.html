@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(49, 112, 60);
+            color: rgb(45, 44, 44);
+        }
+
+        .header {
+            background-color: rgb(49, 112, 60);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .header .logout {
+            background-color: rgb(49, 112, 60);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .header .logout:hover {
+            background-color: rgb(49, 112, 60);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stats .card-container {
+            flex: 1;
+            max-width: 30%;
+            background-color: rgb(196, 182, 129);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stats .card {
+            margin-bottom: 15px;
+        }
+
+        .stats .card h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: rgb(49, 112, 60);
+        }
+
+        .stats .card p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+            color: rgb(45, 44, 44);
+        }
+
+        .stats .card-container a {
+            text-decoration: none;
+            display: inline-block;
+            background-color: rgb(49, 112, 60);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .stats .card-container a:hover {
+            color: rgb(117, 119, 118);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(196, 182, 129);
+            color: rgb(0, 132, 82);
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+        <a href="logout.php" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Overview of the system:</h2>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="card-container">
+                <div class="card">
+                    <h2>120</h2>
+                    <p>Total Users</p>
+                </div>
+                <a href="manage_users.html">Manage Users</a>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h2>340</h2>
+                    <p>Total Books</p>
+                </div>
+                <a href="manage_books.html">Manage Books</a>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h2>15</h2>
+                    <p>Overdue Fees</p>
+                </div>
+                <a href="manage_fees.html">Manage Fees</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Library Management System.
+    </div>
+</body>
+</html>
+
+
