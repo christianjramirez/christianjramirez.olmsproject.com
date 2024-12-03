@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLMS</title>
+    
     <style>
         body {
             background: beige; 
@@ -13,14 +14,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /*margin-top: 50px;*/
-        }
-        .table{
-            position: absolute;
-            border-collapse: collapse;
-            margin-top: 20px;
             
         }
+        html, body{
+            overflow: auto;
+            height: 110%;
+        }
+
         .tr{
             margin: 10px 0px;
         }
@@ -38,7 +38,14 @@
             justify-content: flex-start;
             flex-direction: column;
             width: 100%;
-            
+            position:absolute;
+        }
+        .home-button{
+            background-color: rgb(49, 112, 60);
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
         .button-container button {
@@ -56,6 +63,7 @@
             flex-wrap: wrap;
             gap: 1em;
             margin-top: 20px;
+        
         }
 
         .box {
@@ -147,7 +155,35 @@
 </head>
 <body>
     <div class="header">Contacts</div>
+<div class="container">
+        <div class="box" id="box">
+            <div class="box2" id="box2">
+                <h1>Enter First Name</h1>
+                    <input class="input-field" type="text" placeholder="enter first name.." id="nameField">
+                </div>
+            <div class="box3" id="box3">
+                <h1>Enter Last Name</h1>
+                <input class="input-field" type="text" placeholder="enter Last name.." id="lastNameField">
+                </div>
 
+            <div class="box4" id="box4">
+                <h1>Enter E-mail</h1>
+                <input class="input-field" type="text" placeholder="enter email.." id="emailField">
+                </div>
+
+            <div class="box5" id="box5">
+                <h1>Enter Phone Number</h1>
+                <input class="input-field" type="text" placeholder="enter phone number.." id="phoneField">
+                </div>
+            <h1>Submit a Request</h1>
+            <form id="form">
+            
+            <input class="input-field" type="text" placeholder="Enter your request here..." id="requestField">
+            <button class="submit-btn" id="btn" type="submit" value = "Submit" >Submit</button>
+            </form>
+        </div>
+
+    </div>
     <div class="button-container">
         <button id="button1" onclick="window.location.href='index.html'">Home</a>
         <button id="button2" onclick="window.location.href='about.html'">About</button>
@@ -156,16 +192,7 @@
     </div>
 
 
-    <div class="container">
-        <div class="box" id="box">
-            <h3>Submit a Request</h3>
-            <form id="form">
-            <input class="input-field" type="text" placeholder="Enter your request here..." id="requestField">
-            <button class="submit-btn" id="btn" type="submit" value = "Submit" >Submit</button>
-            </form>
-        </div>
-
-    </div>
+    
 
     <div class="bottommargin"></div>
 
@@ -196,7 +223,6 @@
     </script>
 
     <script>
-        const message = document.getElementById("requestField").value;
         const btn = document.getElementById("btn");
         document.getElementById('form')
          .addEventListener('submit', function(event) {
@@ -210,12 +236,23 @@
              
              emailjs.send("service_u271dwj","template_dizz4xb",{
              message: document.getElementById("requestField").value,
+             firstName: document.getElementById("nameField").value,
+             lastName: document.getElementById("lastNameField").value,
+             email: document.getElementById("emailField").value,
+             phoneNumber: document.getElementById("phoneField").value,
              });
 
              
             
         });
         
+    </script>
+    <script>
+      function goHome() {
+        if (window.location.pathname !== '/index.html') {
+          window.location.href = 'index.html';
+        }
+      }
     </script>
 </body>
 </html>
