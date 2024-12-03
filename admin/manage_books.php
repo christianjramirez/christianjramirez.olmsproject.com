@@ -9,12 +9,18 @@ try {
     $db = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME", $DB_USER, $DB_PASSWORD);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Fetch all books from the `book2` table
-    $books = $db->query("SELECT ISBN, title, author, pictureInfo FROM book2")->fetchAll(PDO::FETCH_ASSOC);
+    // Fetch books without active loans
+    $books = $db->query("
+        SELECT b.ISBN, b.title, b.author, b.pictureInfo
+        FROM book2 b
+        LEFT JOIN book_has_loan2 bl ON b.ISBN = bl.bookHasISBN
+        WHERE bl.bookHasLID IS NULL
+    ")->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +122,7 @@ try {
             text-align: center;
             padding: 15px 0;
         }
-    </style>
+        </style>
 </head>
 <body>
     <!-- Header -->
@@ -157,9 +163,10 @@ try {
 
     <!-- Footer -->
     <div class="footer">
-        &copy; 2024 Library Management System. 
+        &copy; 2024 Library Management System.
     </div>
 </body>
 </html>
+
 
 
