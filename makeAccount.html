@@ -20,111 +20,44 @@
             margin: 130px;
         }
         .sub-header{
-            align-items: center;
+
+            font-size: 18px;
+            text-align: center;
+            justify-content: center;
+            margin-bottom: -100px;
+            display:flex;
+            
+
+        }
+        .loginButton{
+
+            
+            background-color: rgb(49, 112, 60);  
             font-size: 16px;
             text-align: center;
-            margin-top:-90px;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(49, 112, 60);
-            
-            
-        }
-    .containerInfo{
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-      
-         .checkbox {
-            display: flex;  
-            align-items: center;
             cursor: pointer;
-            margin-bottom: 20px; 
-        }
-        .checkboxInput {
-            display: none;
-        }
-        .checkboxStyle {
-            width: 1.25em;
-            height: 1.25em;
-            border: 2px solid rgb(49, 112, 60);
-            border-radius: 50%;
-            margin-right: 10px;
-            box-sizing: border-box;
-            padding: 2px;
-        }
-        .checkboxStyle::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            display: block;
-            background-color: rgb(49, 112, 60);
-            border-radius: 50%;
-            transform: scale(0);
-            transition: transform 0.15s;
-        }
-        .checkboxInput:checked + .checkboxStyle::after {
-            transform: scale(1);
-        }
-        .checkboxInput2 {
-            display: none;
-        }
-        .checkboxStyle2 {
-            width: 1.25em;
-            height: 1.25em;
-            border: 2px solid rgb(49, 112, 60);
-            border-radius: 50%;
-            margin-right: 10px;
-            box-sizing: border-box;
-            padding: 2px;
-        }
-        .checkboxStyle2::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            display: block;
-            background-color: rgb(49, 112, 60);
-            border-radius: 50%;
-            transform: scale(0);
-            transition: transform 0.15s;
-        }
-        .checkboxInput2:checked + .checkboxStyle2::after {
-            transform: scale(1);
-        }
-        .makebutton {
-            background-color: rgb(49, 112, 60);
-            margin-top: 100px; 
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            padding: 5px 10px;
-            
+            padding: 5px 10px;  
+            width: 150px;  
+            justify-content: center;
+            display:flex;
+            justify-content: center;
+            margin-top: 20px;
+            }
+        
 
-        }
+
         .make{
             background-color: rgb(49, 112, 60);
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
+            
+            
             padding: 5px 10px;
-
-           
-            margin-top: -100px;
-
-
-        }   
-
-        
-        
-        .signIn{
-            background-color: rgb(49, 112, 60);
-            margin-top: 20px;
-            padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            text-align: center;
+            justify-content: center;
+            display:flex;
+            width:100%;
+            margin-top: 20px;
+
 
         }
         .instaLogo {
@@ -168,8 +101,8 @@
             z-index: 1000;
         }
         .liblogo {
-            position: fixed;
-            right: 65%;
+            position: absolute;
+            right: 71%;
             width: 90px;
             top: 150px;
         }
@@ -185,13 +118,10 @@
 </head>
 <body>
     <div class="header">Online Library Management System</div>
-    <div class="sub-header">
-        Sign up with first and last name <br>
-        Phone Number <br>
-        Email<br>
-        Password
-    </div>
-    
+    <div class="sub-header"></div>
+    <div class="info-container"></div>
+
+    <script async src="script.js"></script>
 
     <div class="bottommargin"></div>
 
@@ -210,41 +140,40 @@
     <a href="https://www.facebook.com/profile.php?id=61569315551841">
         <img class="facebooklogo" src="images/facebook.png" alt="Facebook" title="Facebook">
     </a>
-    <div class="containerInfo">
-    <form id="signupForm">
-        <input class="input-field" type="text" name="first_name" placeholder="Enter First Name" required>
-        <input class="input-field" type="text" name="last_name" placeholder="Enter Last Name" required>
-        <input class="input-field" type="email" name="email" placeholder="Enter Email" required>
-        <input class="input-field" type="text" name="phone" placeholder="Enter Phone Number" required>
-        <input class="input-field" type="password" name="password" placeholder="Create Password" required>
-        <button type="submit" class="submit-btn">Create Account</button>
-    </form>
-<label for="memberCheckbox" class="checkbox"> 
-                <input type="checkbox" name="userType" id="memberCheckbox" class="checkboxInput">
-                <div class="checkboxStyle"></div>
-                Member
-            </label>
-
-            <label for="adminCheckbox" class="checkbox"> 
-                <input type="checkbox" name="userType" id="adminCheckbox" class="checkboxInput2">
-                <div class="checkboxStyle2"></div>
-                Admin
-            </label>
+    <div class="container-info">
+        <div class="box" id="box">
+            <h3>Enter First Name</h3>
+            <input class="input-field" type="text" placeholder="enter first name.." id="requestField">
+            <h3>Enter Last Name</h3>
+            <input class="input-field1" type="text" placeholder="enter last name.." id="requestField1">
+            <h3>Enter Email</h3>
+            <input class="input-field1" type="text" placeholder="enter email..." id="requestField1">
+            <h3>Enter Phone Number</h3>
+            <input class="input-field1" type="text" placeholder="create password" id="requestField1">
         </div>
-    <div class="signIn">
-        <p>
-            Already have an account? 
-            <a href="login.html" target="_self">Sign in</a>
-        </p>
+    <div class = "createAccount">
+        <a onclick="window.location.href='makeAccount.html'"> 
+        <div class = "create" id = "create">
+            </div>
+        </a>
     </div>
-    <div class="makebutton">
-            <div class="make" id="make">Create</div>
+    <a>
+       
+        
+        <div class="loginButton">
+            <p>
+                Already have an account? 
+                <a href="login.html" target="_self">Sign in</a>
+            </p>
         </div>
-</div>
-
+        <div class="makebutton">
+                <div class="make" id="make">Create</div>
+                <a onclick="window.location.href='loginIndex.html'">
+            </div>
+    </div>
     </a>
+    <a>
         <img class="liblogo" src="images/books.png" alt="Logo" title="Books">
     </a>
-    <script src="signup.js"></script>
 </body>
 </html>
